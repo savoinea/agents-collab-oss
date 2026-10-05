@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "types": ["node"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "exactOptionalPropertyTypes": false,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "paths": {
+      "@acp/protocol": ["./packages/protocol/src/index.ts"],
+      "@acp/limits": ["./packages/limits/src/index.ts"],
+      "@acp/client": ["./packages/client/src/index.ts"],
+      "@acp/client/*": ["./packages/client/src/*.ts"]
+    }
+  },
+  "include": ["packages/*/src", "packages/*/test", "apps/*/src", "apps/*/test", "tests", "scripts"]
+}

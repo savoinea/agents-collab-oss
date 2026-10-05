@@ -1,0 +1,46 @@
+{
+  "name": "agents-collab",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "build": "node scripts/build.mjs",
+    "db:migrate": "tsx apps/server/src/db/migrate.ts",
+    "dev": "tsx watch apps/server/src/main.ts",
+    "start": "tsx apps/server/src/main.ts",
+    "audit:hygiene": "node scripts/hygiene-check.mjs",
+    "correspondent": "tsx apps/correspondent/src/main.ts",
+    "check": "npm run typecheck && npm run audit:hygiene && npm test"
+  },
+  "dependencies": {
+    "@fastify/cookie": "11.1.2",
+    "@fastify/formbody": "9.0.0",
+    "@hpke/chacha20poly1305": "1.8.0",
+    "@hpke/core": "1.9.0",
+    "@hpke/dhkem-x25519": "1.8.0",
+    "@noble/ciphers": "2.4.0",
+    "@noble/curves": "2.4.0",
+    "@noble/hashes": "2.4.0",
+    "@scure/base": "2.4.0",
+    "fastify": "5.12.5",
+    "pg": "8.23.1",
+    "secure-json-parse": "4.1.0",
+    "tsx": "4.23.15"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.4",
+    "@types/pg": "8.23.1",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2",
+    "vitest": "5.0.3"
+  }
+}
